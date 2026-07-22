@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Effica Automation — OBS</title>
+<title>Effica Automation — Organisational Breakdown Structure</title>
 
 <!-- ═══════════════════════════════════════════
   FIREBASE SETUP: Replace PASTE_YOUR_... values
@@ -11,152 +11,213 @@
 ═══════════════════════════════════════════ -->
 
 <style>
+:root{
+  --navy:#1B3A6B;
+  --navy2:#122747;
+  --navy3:#0D1E3D;
+  --gold:#C8962E;
+  --gold2:#E8B84B;
+  --red:#C0392B;
+  --bg:#EEF1F7;
+  --white:#fff;
+  --border:#D1D9E6;
+  --text:#1a2540;
+  --muted:#6B7A99;
+}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif;}
-body{background:#F0F2F8;min-height:100vh;}
+body{background:var(--bg);min-height:100vh;}
 
-/* ── TOP BAR ── */
-#topbar{background:linear-gradient(135deg,#122747,#1B3A6B);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3);}
-.topbar-title{color:#fff;font-size:15px;font-weight:700;letter-spacing:.3px;}
-.topbar-sub{color:rgba(255,255,255,.55);font-size:11px;margin-top:1px;}
-.sync-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:20px;padding:5px 12px;}
-.sync-dot{width:7px;height:7px;border-radius:50%;background:#9CA3AF;}
-.sync-dot.live{background:#4ADE80;box-shadow:0 0 5px #4ADE80;animation:pulse 2s infinite;}
+/* ── HEADER ── */
+#header{background:var(--navy3);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,.35);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:68px;gap:16px;}
+
+/* Logo area */
+.logo-area{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.logo-mark{width:46px;height:46px;background:var(--gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:var(--navy3);letter-spacing:-1px;flex-shrink:0;box-shadow:0 2px 10px rgba(200,150,46,.4);}
+.logo-text{display:flex;flex-direction:column;}
+.logo-name{font-size:17px;font-weight:800;color:#fff;letter-spacing:.3px;line-height:1.1;}
+.logo-name span{color:var(--gold);}
+.logo-sub{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:1.5px;font-weight:600;margin-top:2px;}
+
+/* Page title */
+.page-title-wrap{flex:1;text-align:center;}
+.page-title{font-size:14px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.3px;}
+.page-code{font-size:10px;color:var(--gold);letter-spacing:2px;font-weight:600;margin-top:2px;}
+
+/* Sync + actions */
+.header-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.sync-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:5px 12px;}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:#9CA3AF;flex-shrink:0;}
+.sync-dot.live{background:#4ADE80;box-shadow:0 0 6px #4ADE80;animation:pulse 2s infinite;}
 .sync-dot.saving{background:#FBBF24;animation:pulse .5s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-#sync-txt{color:rgba(255,255,255,.7);font-size:11px;font-weight:500;}
-.topbar-actions{display:flex;gap:8px;}
-.tb-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
-.tb-btn:hover{background:rgba(255,255,255,.22);}
-.tb-btn.danger{background:rgba(220,38,38,.3);border-color:rgba(220,38,38,.5);}
+#sync-txt{color:rgba(255,255,255,.6);font-size:11px;font-weight:500;white-space:nowrap;}
+.hdr-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.hdr-btn:hover{background:rgba(255,255,255,.2);}
+.hdr-btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy3);}
+.hdr-btn.gold:hover{background:var(--gold2);}
+.hdr-btn.danger{background:rgba(192,57,43,.3);border-color:rgba(192,57,43,.5);}
+
+/* ── SUBHEADER ── */
+#subheader{background:var(--navy2);padding:8px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07);}
+.company-info{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.ci-item{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.5);}
+.ci-item span{color:rgba(255,255,255,.8);font-weight:500;}
+.stats-row{display:flex;gap:10px;}
+.stat-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:4px 12px;text-align:center;}
+.stat-chip-val{font-size:15px;font-weight:800;color:var(--gold);}
+.stat-chip-lbl{font-size:9px;color:rgba(255,255,255,.45);font-weight:600;letter-spacing:.5px;}
 
 /* ── CANVAS ── */
-#canvas-wrap{overflow:auto;width:100%;padding:40px 60px 80px;min-height:calc(100vh - 50px);}
+#canvas-wrap{overflow:auto;width:100%;padding:36px 48px 100px;min-height:calc(100vh - 110px);}
 #canvas{display:flex;flex-direction:column;align-items:center;min-width:max-content;}
 
+/* ── PRESIDENT NODE ── */
+.pres-node{background:linear-gradient(135deg,#4C1D95,#6D28D9);border-radius:16px;padding:14px 28px;display:flex;align-items:center;gap:14px;cursor:pointer;box-shadow:0 6px 24px rgba(109,40,217,.4);border:2px solid rgba(255,255,255,.15);transition:all .2s;}
+.pres-node:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(109,40,217,.55);}
+.pres-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#C4B5FD,#A78BFA);color:#4C1D95;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;}
+.pres-role{font-size:10px;font-weight:700;color:#C4B5FD;letter-spacing:1.5px;}
+.pres-name{font-size:14px;font-weight:700;color:#fff;margin-top:2px;}
+.add-pres-btn{background:#fff;border:2px dashed #A78BFA;border-radius:12px;padding:10px 24px;font-size:13px;font-weight:600;color:#6D28D9;cursor:pointer;transition:all .2s;margin-bottom:6px;}
+.add-pres-btn:hover{background:#F5F3FF;border-color:#6D28D9;}
+
 /* ── GM NODE ── */
-.gm-node{background:linear-gradient(135deg,#122747,#1B3A6B);border-radius:16px;padding:14px 28px;display:flex;align-items:center;gap:14px;cursor:pointer;box-shadow:0 6px 24px rgba(27,58,107,.5);border:2px solid rgba(255,255,255,.15);transition:transform .2s;position:relative;}
-.gm-node:hover{transform:translateY(-2px);}
-.gm-avatar{width:42px;height:42px;border-radius:50%;background:#C8962E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;}
-.gm-role{font-size:10px;font-weight:700;color:#C8962E;letter-spacing:1.5px;}
+.gm-node{background:linear-gradient(135deg,var(--navy2),var(--navy));border-radius:16px;padding:14px 28px;display:flex;align-items:center;gap:14px;cursor:pointer;box-shadow:0 6px 24px rgba(27,58,107,.5);border:2px solid rgba(255,255,255,.12);transition:all .2s;}
+.gm-node:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(27,58,107,.65);}
+.gm-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy3);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;}
+.gm-role{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1.5px;}
 .gm-name{font-size:14px;font-weight:700;color:#fff;margin-top:2px;}
 
-/* ── CONNECTOR ── */
-.v-conn{width:2px;background:linear-gradient(180deg,#94A3B8,#CBD5E1);flex-shrink:0;align-self:center;}
-.h-line{height:2px;background:#CBD5E1;position:absolute;top:0;left:0;right:0;}
-
-/* ── DEPT ROW ── */
-#dept-row{display:flex;align-items:flex-start;justify-content:center;position:relative;gap:0;}
-#dept-row-connector{position:relative;height:2px;margin:0;}
-
-/* ── DEPT COLUMN ── */
-.dept-col{display:flex;flex-direction:column;align-items:center;position:relative;padding:0 8px;}
-.dept-col-top{display:flex;flex-direction:column;align-items:center;}
+/* ── CONNECTORS ── */
+.v-line{width:2px;background:linear-gradient(180deg,var(--gold)60,#CBD5E1);margin:0 auto;}
+.h-bar{position:absolute;top:0;height:2px;background:var(--border);}
+.chain-circle{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--navy3);font-weight:800;box-shadow:0 2px 8px rgba(200,150,46,.4);}
 
 /* ── DEPT CARD ── */
-.dept-card{border-radius:12px;overflow:hidden;display:flex;align-items:stretch;box-shadow:0 2px 10px rgba(0,0,0,.1);border:1.5px solid #E5E7EB;width:180px;transition:all .2s;background:#fff;cursor:pointer;position:relative;}
-.dept-card:hover{transform:translateY(-2px);}
+.dept-card{border-radius:14px;overflow:hidden;display:flex;align-items:stretch;box-shadow:0 3px 14px rgba(0,0,0,.1);border:1.5px solid var(--border);width:190px;transition:all .22s;background:#fff;position:relative;}
+.dept-card:hover{transform:translateY(-3px);}
 .dept-accent{width:5px;flex-shrink:0;}
-.dept-inner{flex:1;padding:10px 12px;}
-.dept-num-badge{width:32px;height:32px;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;margin-bottom:6px;}
-.dept-label{font-size:13px;font-weight:700;color:#111827;line-height:1.3;}
-.dept-meta{font-size:10px;color:#9CA3AF;margin-top:3px;}
-.dept-btns{display:flex;flex-direction:column;border-left:1px solid #F3F4F6;}
-.dept-btn{flex:1;background:#F9FAFB;border:none;cursor:pointer;font-size:13px;padding:0 8px;color:#9CA3AF;transition:all .15s;}
-.dept-btn:hover{color:#1B3A6B;background:#EEF2FF;}
-.dept-btn:first-child{border-bottom:1px solid #F3F4F6;}
+.dept-inner{flex:1;padding:11px 13px;cursor:pointer;}
+.dept-num-badge{width:34px;height:34px;border-radius:9px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;margin-bottom:7px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.dept-label{font-size:13px;font-weight:800;color:var(--text);line-height:1.3;}
+.dept-meta{font-size:10px;color:var(--muted);margin-top:3px;font-weight:500;}
+.dept-btns{display:flex;flex-direction:column;border-left:1px solid var(--border);}
+.dept-btn{flex:1;background:#FAFBFD;border:none;cursor:pointer;font-size:14px;padding:0 10px;color:var(--muted);transition:all .15s;}
+.dept-btn:hover{color:var(--navy);background:#EEF1F7;}
+.dept-btn:first-child{border-bottom:1px solid var(--border);}
+.move-row{display:flex;justify-content:space-between;margin-top:5px;gap:4px;}
+.move-btn{flex:1;background:#fff;border:1px solid var(--border);border-radius:6px;padding:3px 0;font-size:11px;cursor:pointer;color:var(--muted);transition:all .15s;font-weight:600;}
+.move-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
 
-/* INSERT BETWEEN DEPTS */
-.insert-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:30px;opacity:0;transition:opacity .2s;}
-#dept-row:hover .insert-col{opacity:1;}
-.insert-col-btn{background:#fff;border:1.5px dashed #CBD5E1;border-radius:20px;padding:4px 8px;font-size:11px;font-weight:600;color:#9CA3AF;cursor:pointer;white-space:nowrap;writing-mode:horizontal-tb;transition:all .15s;}
-.insert-col-btn:hover{border-color:#1B3A6B;color:#1B3A6B;}
+/* ── INSERT ── */
+.insert-spacer{display:flex;flex-direction:column;align-items:center;padding-top:0;opacity:0;transition:opacity .2s;}
+.dept-row-outer:hover .insert-spacer{opacity:1;}
+.insert-col-btn{background:#fff;border:1.5px dashed var(--border);border-radius:20px;padding:8px 4px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;writing-mode:vertical-rl;height:60px;transition:all .15s;}
+.insert-col-btn:hover{border-color:var(--gold);color:var(--gold);background:#FFFBF0;}
 
-/* ── ROLE NODES ── */
-.role-tree{display:flex;flex-direction:column;align-items:center;margin-top:0;}
-.role-level{display:flex;align-items:flex-start;justify-content:center;position:relative;}
+/* ── ROLE BOX ── */
+.role-box{border-radius:10px;border:1.5px solid var(--border);background:#fff;padding:8px 11px;text-align:center;cursor:pointer;transition:all .15s;width:136px;box-shadow:0 1px 5px rgba(0,0,0,.06);}
+.role-box:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.1);}
+.role-box-icon{font-size:14px;margin-bottom:2px;}
+.role-box-title{font-size:11px;font-weight:700;color:var(--text);line-height:1.3;}
+.role-box-name{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.3;font-weight:500;}
 .role-node{display:flex;flex-direction:column;align-items:center;}
-.role-box{border-radius:10px;border:1.5px solid #E5E7EB;background:#fff;padding:7px 10px;text-align:center;cursor:pointer;transition:all .15s;width:130px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
-.role-box:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.1);}
-.role-box-icon{font-size:13px;margin-bottom:2px;}
-.role-box-title{font-size:11px;font-weight:700;color:#1F2937;line-height:1.3;}
-.role-box-name{font-size:10px;color:#9CA3AF;margin-top:2px;line-height:1.3;}
-
-/* ── CONNECTORS ── */
-.v-line{width:2px;background:linear-gradient(180deg,#CBD5E1,#94A3B8);margin:0 auto;}
-.h-bar{position:absolute;top:0;height:2px;background:#CBD5E1;}
-
-/* ── ADD ROLE FLOAT BTN ── */
-.add-role-float{position:absolute;bottom:-10px;right:-10px;width:22px;height:22px;border-radius:50%;background:#1B3A6B;color:#fff;border:none;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.2);opacity:0;transition:opacity .2s;}
-.dept-card:hover .add-role-float{opacity:1;}
+.role-level{display:flex;align-items:flex-start;justify-content:center;position:relative;}
 
 /* ── TOAST ── */
-.toast{position:fixed;bottom:24px;right:24px;z-index:9999;background:#111827;color:#fff;border-radius:12px;padding:12px 20px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.25);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;}
+.toast{position:fixed;bottom:28px;right:28px;z-index:9999;background:var(--navy3);color:#fff;border-radius:12px;padding:12px 22px;font-size:13px;font-weight:600;box-shadow:0 6px 24px rgba(0,0,0,.3);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;border-left:3px solid var(--gold);}
 .toast.show{opacity:1;transform:translateY(0);}
 
 /* ── OVERLAY ── */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:2000;backdrop-filter:blur(4px);}
-.modal{background:#fff;border-radius:20px;width:480px;max-width:96vw;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.22);}
-.modal-hdr{background:linear-gradient(135deg,#122747,#1B3A6B);border-radius:20px 20px 0 0;padding:20px 26px;display:flex;justify-content:space-between;align-items:center;}
+.overlay{position:fixed;inset:0;background:rgba(10,18,35,.6);display:flex;align-items:center;justify-content:center;z-index:2000;backdrop-filter:blur(6px);}
+.modal{background:#fff;border-radius:20px;width:500px;max-width:96vw;max-height:90vh;overflow-y:auto;box-shadow:0 28px 72px rgba(0,0,0,.28);}
+.modal-hdr{background:linear-gradient(135deg,var(--navy3),var(--navy));border-radius:20px 20px 0 0;padding:20px 26px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);}
 .modal-hdr-title{color:#fff;font-weight:700;font-size:16px;}
-.modal-close{background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:18px;}
-.modal-body{padding:24px;}
+.modal-close{background:rgba(255,255,255,.12);border:none;color:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:26px;}
 .field{margin-bottom:16px;}
-.field label{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
-.field input,.field textarea,.field select{width:100%;border:1.5px solid #E5E7EB;border-radius:10px;padding:10px 14px;font-size:14px;color:#111827;font-family:inherit;outline:none;box-sizing:border-box;transition:border .2s;}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:#1B3A6B;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:7px;text-transform:uppercase;letter-spacing:.8px;}
+.field input,.field textarea,.field select{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:14px;color:var(--text);font-family:inherit;outline:none;box-sizing:border-box;transition:border .2s;background:#FAFBFD;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--navy);background:#fff;}
 .field textarea{resize:vertical;min-height:68px;}
 .type-pills{display:flex;gap:7px;flex-wrap:wrap;}
-.type-pill{padding:6px 13px;border-radius:20px;font-size:12px;cursor:pointer;font-weight:600;border:1.5px solid #E5E7EB;background:#F9FAFB;color:#6B7280;transition:all .15s;}
+.type-pill{padding:6px 13px;border-radius:20px;font-size:12px;cursor:pointer;font-weight:600;border:1.5px solid var(--border);background:#F9FAFB;color:var(--muted);transition:all .15s;}
 .quick-btns{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
-.quick-btn{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid #E5E7EB;background:#F9FAFB;color:#374151;cursor:pointer;transition:all .15s;}
-.quick-btn:hover{border-color:#1B3A6B;color:#1B3A6B;background:#EEF2FF;}
+.quick-btn{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--border);background:#F9FAFB;color:var(--text);cursor:pointer;transition:all .15s;}
+.quick-btn:hover{border-color:var(--gold);color:var(--gold);background:#FFFBF0;}
 .color-row{display:flex;gap:8px;flex-wrap:wrap;}
 .color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;transition:transform .15s;}
 .btn-row{display:flex;gap:10px;margin-top:20px;}
-.btn-primary{flex:1;background:linear-gradient(135deg,#1B3A6B,#2952A0);color:#fff;border:none;border-radius:10px;padding:12px 0;font-size:14px;font-weight:700;cursor:pointer;}
-.btn-secondary{flex:1;background:#F3F4F6;color:#374151;border:none;border-radius:10px;padding:12px 0;font-size:14px;cursor:pointer;}
+.btn-primary{flex:1;background:linear-gradient(135deg,var(--navy),#2952A0);color:#fff;border:none;border-radius:10px;padding:12px 0;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s;}
+.btn-primary:hover{opacity:.88;}
+.btn-secondary{flex:1;background:#F3F4F6;color:var(--text);border:none;border-radius:10px;padding:12px 0;font-size:14px;cursor:pointer;}
 .btn-danger-sm{background:#FEF2F2;border:1px solid #FCA5A5;color:#DC2626;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;}
 
-/* ── LEGEND ── */
-#legend{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#fff;border-radius:12px;padding:10px 18px;box-shadow:0 2px 12px rgba(0,0,0,.1);display:flex;gap:14px;flex-wrap:wrap;justify-content:center;z-index:50;}
-.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#6B7280;font-weight:500;}
-.leg-dot{width:11px;height:11px;border-radius:3px;border:1.5px solid;}
-
-/* panel */
-.panel{background:#fff;border-radius:20px;width:560px;max-width:96vw;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.22);}
+/* ── PANEL ── */
+.panel{background:#fff;border-radius:20px;width:580px;max-width:96vw;max-height:90vh;overflow-y:auto;box-shadow:0 28px 72px rgba(0,0,0,.28);}
 .panel-hdr{border-radius:20px 20px 0 0;padding:22px 26px;}
 .panel-body{padding:22px 26px;}
-.role-list-item{display:flex;align-items:center;justify-content:space-between;background:#FAFAFA;border:1px solid #F3F4F6;border-radius:10px;padding:10px 14px;margin-bottom:7px;transition:all .15s;}
+.role-list-item{display:flex;align-items:center;justify-content:space-between;background:#FAFBFD;border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:7px;transition:all .15s;}
 .role-item-badge{display:inline-block;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:600;margin-top:3px;}
+
+/* ── LEGEND ── */
+#legend{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--navy3);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 18px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;z-index:50;box-shadow:0 4px 16px rgba(0,0,0,.25);}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.6);font-weight:500;}
+.leg-dot{width:10px;height:10px;border-radius:3px;border:1.5px solid;}
+
+/* ── WATERMARK ── */
+.watermark{position:fixed;bottom:16px;right:24px;font-size:10px;color:rgba(0,0,0,.2);font-weight:600;letter-spacing:.5px;z-index:49;}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div id="topbar">
-  <div>
-    <div class="topbar-title">Effica Automation — OBS</div>
-    <div class="topbar-sub">EA-HR-SBP-001 v2.0 · Organisational Breakdown Structure</div>
-  </div>
-  <div class="sync-pill">
-    <div class="sync-dot" id="sync-dot"></div>
-    <span id="sync-txt">Connecting…</span>
-  </div>
-  <div class="topbar-actions">
-    <button class="tb-btn" onclick="openAddDeptModal(data.departments.length)">➕ Add Department</button>
-    <button class="tb-btn danger" onclick="resetData()">🔄 Reset</button>
+<!-- ═══ HEADER ═══ -->
+<div id="header">
+  <div class="header-inner">
+    <!-- LOGO -->
+    <div class="logo-area">
+      <div class="logo-mark">EA</div>
+      <div class="logo-text">
+        <div class="logo-name"><span>Effica</span> Automation</div>
+        <div class="logo-sub">A PSG GROUP COMPANY</div>
+      </div>
+    </div>
+    <!-- PAGE TITLE -->
+    <div class="page-title-wrap">
+      <div class="page-title">Organisational Breakdown Structure</div>
+      <div class="page-code">EA-HR-SBP-001 · v2.0</div>
+    </div>
+    <!-- RIGHT -->
+    <div class="header-right">
+      <div class="sync-pill">
+        <div class="sync-dot" id="sync-dot"></div>
+        <span id="sync-txt">Connecting…</span>
+      </div>
+      <button class="hdr-btn gold" onclick="openAddDeptModal(data.departments.length)">➕ Add Dept</button>
+      <button class="hdr-btn danger" onclick="resetData()">🔄 Reset</button>
+    </div>
   </div>
 </div>
 
-<!-- CANVAS -->
-<div id="canvas-wrap">
-  <div id="canvas">
-    <!-- Rendered by JS -->
+<!-- ═══ SUBHEADER ═══ -->
+<div id="subheader">
+  <div class="company-info">
+    <div class="ci-item">🏭 <span>Effica Automation Limited</span></div>
+    <div class="ci-item">📍 <span>Neelambur, Coimbatore, Tamil Nadu</span></div>
+    <div class="ci-item">🌐 <span>www.effica.in</span></div>
+    <div class="ci-item">🔗 <span>Subsidiary of Coimbatore Pioneer Fertilizers Ltd</span></div>
   </div>
+  <div class="stats-row" id="stats-row"></div>
+</div>
+
+<!-- ═══ CANVAS ═══ -->
+<div id="canvas-wrap">
+  <div id="canvas"></div>
 </div>
 
 <!-- LEGEND -->
 <div id="legend"></div>
+<div class="watermark">© Effica Automation Limited</div>
 
 <div class="toast" id="toast"></div>
 <div id="overlays"></div>
@@ -170,27 +231,26 @@ body{background:#F0F2F8;min-height:100vh;}
    🔥 PASTE YOUR FIREBASE CONFIG HERE
 ══════════════════════════════════════════ */
 const FIREBASE_CONFIG = {
-  apiKey:            "AIzaSyDRhUj6phBwea4rWwqbYPXji1Q5PySPslY",
-  authDomain:       "effica-obs.firebaseapp.com",
-  databaseURL:      "https://effica-obs-default-rtdb.firebaseio.com",
-  projectId:         "effica-obs",
-  storageBucket:   "effica-obs.firebasestorage.app",
+  apiKey: "AIzaSyDRhUj6phBwea4rWwqbYPXji1Q5PySPslY",
+  authDomain: "effica-obs.firebaseapp.com",
+  databaseURL: "https://effica-obs-default-rtdb.firebaseio.com",
+  projectId: "effica-obs",
+  storageBucket: "effica-obs.firebasestorage.app",
   messagingSenderId: "375849380643",
-  appId:             "1:375849380643:web:b17e1fecdb2bc6dc107a96"
+  appId: "1:375849380643:web:b17e1fecdb2bc6dc107a96"
 };
 /* ══════════════════════════════════════════ */
 
-const DB_PATH="obs_data_v2";
-const DEPT_COLORS=["#D946EF","#3B82F6","#F59E0B","#10B981","#EF4444","#8B5CF6","#06B6D4","#F97316","#EC4899","#84CC16","#14B8A6","#6366F1"];
+const DB_PATH="obs_data_v3";
+const DEPT_COLORS=["#1B3A6B","#C8962E","#D946EF","#3B82F6","#F59E0B","#10B981","#EF4444","#8B5CF6","#06B6D4","#F97316","#EC4899","#84CC16","#14B8A6","#6366F1"];
 const TYPE_CFG={
-  tl:{bg:"#F0EFFE",border:"#7C6FF5",text:"#4338CA",label:"Team Lead / HOD",icon:"👑",order:0},
-  sr:{bg:"#FEF3C7",border:"#D97706",text:"#92400E",label:"Senior",icon:"⭐",order:1},
-  jr:{bg:"#D1FAE5",border:"#059669",text:"#065F46",label:"Junior",icon:"🔵",order:2},
-  tr:{bg:"#F3F4F6",border:"#9CA3AF",text:"#374151",label:"Trainee",icon:"🟢",order:3},
-  reg:{bg:"#FCE7F3",border:"#DB2777",text:"#9D174D",label:"Region",icon:"📍",order:1},
+  tl:{bg:"#EEF2FF",border:"#4F46E5",text:"#3730A3",label:"Team Lead / HOD",icon:"👑",order:0},
   mgr:{bg:"#FEF3C7",border:"#B45309",text:"#78350F",label:"Manager",icon:"🏅",order:0},
+  sr:{bg:"#FEF9C3",border:"#CA8A04",text:"#713F12",label:"Senior",icon:"⭐",order:1},
+  jr:{bg:"#DCFCE7",border:"#16A34A",text:"#14532D",label:"Junior",icon:"🔵",order:2},
+  tr:{bg:"#F1F5F9",border:"#64748B",text:"#1E293B",label:"Trainee",icon:"🟢",order:3},
+  reg:{bg:"#FDF2F8",border:"#C026D3",text:"#701A75",label:"Region",icon:"📍",order:1},
 };
-
 const QUICK_DEPTS=["HR","Purchase","R&D","Project Management","Simulation","Accounts","Quality Control","Logistics","IT","Marketing","Sales","Application","Design","Development","Manufacturing","Installation"];
 
 const DEFAULT_DATA={
@@ -247,7 +307,7 @@ const DEFAULT_DATA={
       {id:"i6",type:"sr",role:"HSR-2",name:"Sr×1+Jr×1",group:"Hosur"},
       {id:"i7",type:"jr",role:"Floating",name:"Sr×1+Tr×1",group:"Floating"},
     ]},
-    {id:"hr",num:"07",label:"HR",headcount:3,color:"#EC4899",description:"Manages recruitment, onboarding, and employee relations.",weeklyTarget:"",roles:[
+    {id:"hr",num:"07",label:"HR",headcount:3,color:"#EC4899",description:"Manages recruitment, onboarding, appraisals and employee relations.",weeklyTarget:"",roles:[
       {id:"hr1",type:"mgr",role:"HR Manager",name:"J. Philomina Sheela",group:"Leadership"},
       {id:"hr2",type:"jr",role:"HR Executive",name:"",group:"Team"},
       {id:"hr3",type:"tr",role:"HR Trainee",name:"",group:"Team"},
@@ -282,7 +342,7 @@ const DEFAULT_DATA={
 };
 
 let data=JSON.parse(JSON.stringify(DEFAULT_DATA));
-let db=null, firebaseOk=false;
+let db=null,firebaseOk=false;
 let idSeq=9000;
 const uid=()=>`r${++idSeq}`;
 const ini=n=>(n||"").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase()||"—";
@@ -290,50 +350,47 @@ const ini=n=>(n||"").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase()||
 /* ── Firebase ── */
 function initFirebase(){
   if(FIREBASE_CONFIG.apiKey.includes("PASTE_YOUR")){
-    setSyncStatus("local","Local only — Firebase not configured");
-    try{const d=localStorage.getItem("effica_obs_v2");if(d)data=JSON.parse(d);}catch(e){}
-    render(); return;
+    setSyncStatus("","Local only — Firebase not configured");
+    try{const d=localStorage.getItem("effica_obs_v3");if(d)data=JSON.parse(d);}catch(e){}
+    render();return;
   }
   try{
     firebase.initializeApp(FIREBASE_CONFIG);
-    db=firebase.database(); firebaseOk=true;
+    db=firebase.database();firebaseOk=true;
     setSyncStatus("connecting","Connecting…");
     db.ref(DB_PATH).on("value",snap=>{
       const v=snap.val();
-      if(v){data=v;}
-      else{db.ref(DB_PATH).set(data);}
-      render();
-      setSyncStatus("live","Live — synced to all users");
-    },()=>{setSyncStatus("error","Firebase error");});
+      if(v)data=v;else db.ref(DB_PATH).set(data);
+      render();setSyncStatus("live","Live — synced to all users");
+    },()=>setSyncStatus("error","Firebase error"));
     db.ref(".info/connected").on("value",snap=>{
-      setSyncStatus(snap.val()?"live":"connecting", snap.val()?"Live — synced to all users":"Reconnecting…");
+      setSyncStatus(snap.val()?"live":"connecting",snap.val()?"Live — synced to all users":"Reconnecting…");
     });
-  }catch(e){setSyncStatus("error","Firebase error"); render();}
+  }catch(e){setSyncStatus("","Error");render();}
 }
 function setSyncStatus(s,m){
   const d=document.getElementById("sync-dot");
-  d.className="sync-dot "+(s==="live"?"live":s==="saving"?"saving":"");
+  d.className="sync-dot"+(s?" "+s:"");
   document.getElementById("sync-txt").textContent=m;
 }
 function saveData(){
   if(firebaseOk&&db){
     setSyncStatus("saving","Saving…");
-    db.ref(DB_PATH).set(data).then(()=>setSyncStatus("live","Live — synced")).catch(()=>{});
-  } else {
-    try{localStorage.setItem("effica_obs_v2",JSON.stringify(data));}catch(e){}
+    db.ref(DB_PATH).set(data).then(()=>{setSyncStatus("live","Live — synced");showToast("✅ Saved & synced");}).catch(()=>{});
+  }else{
+    try{localStorage.setItem("effica_obs_v3",JSON.stringify(data));}catch(e){}
+    showToast("✅ Saved locally");
   }
-  showToast("✅ Saved");
 }
 function showToast(m){
-  const t=document.getElementById("toast");
-  t.textContent=m; t.classList.add("show");
+  const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");
   setTimeout(()=>t.classList.remove("show"),2500);
 }
 
-/* ── BUILD ROLE TREE ── */
+/* ── ROLE TREE ── */
 function buildRoleTree(dept){
   const roles=dept.roles;
-  if(!roles.length) return `<div style="font-size:11px;color:#9CA3AF;padding:8px 0;font-style:italic;">No roles yet</div>`;
+  if(!roles.length)return`<div style="font-size:11px;color:#9CA3AF;padding:8px;font-style:italic;">No roles — click ➕ to add</div>`;
   const byGroup={};
   roles.forEach(r=>{const g=r.group||"Team";if(!byGroup[g])byGroup[g]=[];byGroup[g].push(r);});
   const groupRank=g=>Math.min(...byGroup[g].map(r=>TYPE_CFG[r.type]?.order??9));
@@ -341,34 +398,28 @@ function buildRoleTree(dept){
   const soloGroups=sortedGroups.filter(g=>byGroup[g].every(r=>r.type==="tl"||r.type==="mgr")||byGroup[g].length===1);
   const leafGroups=sortedGroups.filter(g=>!soloGroups.includes(g));
   let html="";
-
-  soloGroups.forEach(g=>{
-    byGroup[g].forEach(r=>{
-      html+=`<div class="v-line" style="height:14px;"></div>${roleNodeHTML(r,dept.id)}`;
-    });
-  });
-
+  soloGroups.forEach(g=>byGroup[g].forEach(r=>{html+=`<div class="v-line" style="height:12px;"></div>${roleNodeHTML(r,dept.id)}`;}));
   if(leafGroups.length>0){
-    html+=`<div class="v-line" style="height:14px;"></div>`;
+    html+=`<div class="v-line" style="height:12px;"></div>`;
     html+=`<div class="role-level" style="position:relative;gap:0;align-items:flex-start;">`;
-    if(leafGroups.length>1) html+=`<div class="h-bar" style="left:30%;right:30%;"></div>`;
+    if(leafGroups.length>1)html+=`<div class="h-bar" style="left:25%;right:25%;"></div>`;
     leafGroups.forEach(g=>{
       const sortedR=[...byGroup[g]].sort((a,b)=>(TYPE_CFG[a.type]?.order??9)-(TYPE_CFG[b.type]?.order??9));
       const typeRows=[];let cur=null;
       sortedR.forEach(r=>{if(!cur||cur.type!==r.type){cur={type:r.type,items:[r]};typeRows.push(cur);}else cur.items.push(r);});
-      html+=`<div class="role-node" style="margin:0 5px;">`;
-      html+=`<div class="v-line" style="height:14px;"></div>`;
-      if(leafGroups.length>1) html+=`<div style="font-size:9px;font-weight:700;color:#9CA3AF;letter-spacing:.5px;margin-bottom:4px;background:#F3F4F6;border-radius:20px;padding:1px 8px;">${g}</div>`;
+      html+=`<div class="role-node" style="margin:0 4px;">`;
+      html+=`<div class="v-line" style="height:12px;"></div>`;
+      if(leafGroups.length>1)html+=`<div style="font-size:9px;font-weight:700;color:#9CA3AF;letter-spacing:.5px;margin-bottom:4px;background:#F1F5F9;border-radius:20px;padding:1px 8px;">${g}</div>`;
       typeRows.forEach(row=>{
         html+=`<div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;">`;
-        if(row.items.length>1) html+=`<div class="h-bar" style="left:25%;right:25%;"></div>`;
+        if(row.items.length>1)html+=`<div class="h-bar" style="left:22%;right:22%;"></div>`;
         row.items.forEach(r=>{
           html+=`<div style="display:flex;flex-direction:column;align-items:center;">`;
-          if(row.items.length>1) html+=`<div class="v-line" style="height:12px;"></div>`;
+          if(row.items.length>1)html+=`<div class="v-line" style="height:10px;"></div>`;
           html+=roleNodeHTML(r,dept.id);
           html+=`</div>`;
         });
-        html+=`</div><div class="v-line" style="height:8px;"></div>`;
+        html+=`</div><div class="v-line" style="height:6px;"></div>`;
       });
       html+=`</div>`;
     });
@@ -380,9 +431,8 @@ function buildRoleTree(dept){
 function roleNodeHTML(r,deptId){
   const s=TYPE_CFG[r.type]||TYPE_CFG.tr;
   return `<div class="role-box" onclick="openEditRole('${deptId}','${r.id}')"
-    style="border-color:#E5E7EB;"
     onmouseover="this.style.background='${s.bg}';this.style.borderColor='${s.border}';"
-    onmouseout="this.style.background='#fff';this.style.borderColor='#E5E7EB';">
+    onmouseout="this.style.background='#fff';this.style.borderColor='var(--border)';">
     <div class="role-box-icon">${s.icon}</div>
     <div class="role-box-title">${r.role}</div>
     ${r.name?`<div class="role-box-name">${r.name}</div>`:""}
@@ -393,143 +443,110 @@ function roleNodeHTML(r,deptId){
 function render(){
   const canvas=document.getElementById("canvas");
   const total=data.departments.reduce((s,d)=>s+d.headcount,0);
+  const totalRoles=data.departments.reduce((s,d)=>s+d.roles.length,0);
 
-  const pres = data.president || {role:"President",name:"",enabled:false};
+  // Stats bar
+  document.getElementById("stats-row").innerHTML=
+    [[total,"People"],[data.departments.length,"Depts"],[totalRoles,"Positions"]].map(([v,l])=>
+    `<div class="stat-chip"><div class="stat-chip-val">${v}</div><div class="stat-chip-lbl">${l}</div></div>`).join("");
+
+  const pres=data.president||{role:"President",name:"",enabled:false};
+
+  let html=`<div style="display:flex;flex-direction:column;align-items:center;">`;
+
+  // President
+  if(pres.enabled){
+    html+=`<div class="pres-node" onclick="openEditPresident()">
+      <div class="pres-avatar">${ini(pres.name)||"👑"}</div>
+      <div><div class="pres-role">${(pres.role||"PRESIDENT").toUpperCase()}</div>
+      <div class="pres-name">${pres.name||"—"}</div></div>
+      <div style="font-size:12px;color:rgba(255,255,255,.3);margin-left:12px;">✏️</div>
+    </div>
+    <div class="v-line" style="height:22px;"></div>`;
+  }else{
+    html+=`<button class="add-pres-btn" onclick="openEditPresident()">👑 Add President / MD / Chairman above GM</button>`;
+  }
 
   // GM
-  let html=`
-  <div style="display:flex;flex-direction:column;align-items:center;">
-    <div style="font-size:11px;font-weight:700;color:#1B3A6B;letter-spacing:2px;margin-bottom:8px;opacity:.6;">EA-HR-SBP-001 v2.0</div>
-    <div style="display:flex;gap:20px;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
-      ${[[total,"People"],[data.departments.length,"Depts"]].map(([v,l])=>`<div style="background:#fff;border-radius:10px;padding:6px 14px;box-shadow:0 1px 4px rgba(0,0,0,.08);text-align:center;"><div style="font-size:16px;font-weight:800;color:#1B3A6B;">${v}</div><div style="font-size:10px;color:#9CA3AF;font-weight:600;">${l}</div></div>`).join("")}
-    </div>
-
-    <!-- PRESIDENT (toggle) -->
-    ${pres.enabled ? `
-    <div style="position:relative;">
-      <div style="background:linear-gradient(135deg,#7C3AED,#6D28D9);border-radius:16px;padding:14px 28px;display:flex;align-items:center;gap:14px;cursor:pointer;box-shadow:0 6px 24px rgba(109,40,217,.45);border:2px solid rgba(255,255,255,.15);transition:transform .2s;"
-        onclick="openEditPresident()" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-        <div style="width:42px;height:42px;border-radius:50%;background:#C4B5FD;color:#4C1D95;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;">${ini(pres.name)||"👑"}</div>
-        <div>
-          <div style="font-size:10px;font-weight:700;color:#C4B5FD;letter-spacing:1.5px;">${pres.role||"PRESIDENT"}</div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-top:2px;">${pres.name||"Click to set name"}</div>
-        </div>
-        <div style="font-size:13px;color:rgba(255,255,255,.35);margin-left:10px;">✏️</div>
-      </div>
-    </div>
-    <div class="v-line" style="height:20px;"></div>
-    ` : `
-    <button onclick="openEditPresident()" style="background:#fff;border:2px dashed #A78BFA;border-radius:14px;padding:10px 24px;font-size:13px;font-weight:600;color:#7C3AED;cursor:pointer;margin-bottom:10px;transition:all .2s;"
-      onmouseover="this.style.background='#F5F3FF'" onmouseout="this.style.background='#fff'">
-      ➕ Add President / MD above GM
-    </button>
-    `}
-
-    <!-- GM -->
-    <div class="gm-node" onclick="openEditGM()">
-      <div class="gm-avatar">${ini(data.gm.name)}</div>
-      <div>
-        <div class="gm-role">${data.gm.role}</div>
-        <div class="gm-name">${data.gm.name}</div>
-      </div>
-      <div style="font-size:13px;color:rgba(255,255,255,.35);margin-left:10px;">✏️</div>
-    </div>
+  html+=`<div class="gm-node" onclick="openEditGM()">
+    <div class="gm-avatar">${ini(data.gm.name)}</div>
+    <div><div class="gm-role">${(data.gm.role||"GENERAL MANAGER").toUpperCase()}</div>
+    <div class="gm-name">${data.gm.name}</div></div>
+    <div style="font-size:12px;color:rgba(255,255,255,.3);margin-left:12px;">✏️</div>
+  </div>
   </div>`;
 
-  // vertical line from GM down
-  html+=`<div class="v-line" style="height:30px;"></div>`;
-
-  // horizontal connector spanning all dept columns
-  html+=`<div style="position:relative;width:100%;">
-    <div style="position:absolute;top:0;left:5%;right:5%;height:2px;background:#CBD5E1;z-index:0;"></div>
-  </div>`;
+  // Connector to dept row
+  html+=`<div class="v-line" style="height:28px;"></div>`;
+  html+=`<div style="position:relative;width:100%;height:2px;background:linear-gradient(90deg,transparent,#CBD5E1 20%,#CBD5E1 80%,transparent);margin-bottom:0;"></div>`;
 
   // Dept columns
-  html+=`<div style="display:flex;align-items:flex-start;justify-content:center;gap:0;position:relative;padding-top:2px;">`;
+  html+=`<div class="dept-row-outer" style="display:flex;align-items:flex-start;justify-content:center;gap:0;position:relative;padding-top:0;">`;
 
   data.departments.forEach((dept,di)=>{
-    const isFirst=di===0, isLast=di===data.departments.length-1;
+    const isFirst=di===0,isLast=di===data.departments.length-1;
     html+=`
-    <!-- INSERT BEFORE -->
-    <div style="display:flex;flex-direction:column;align-items:center;padding-top:0;opacity:0;transition:opacity .2s;" class="insert-spacer" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
+    <div class="insert-spacer" style="padding-top:0;">
       <div class="v-line" style="height:16px;opacity:0;"></div>
-      <button class="insert-col-btn" onclick="openAddDeptModal(${di})" style="font-size:10px;writing-mode:vertical-rl;padding:8px 4px;height:60px;">➕</button>
+      <button class="insert-col-btn" onclick="openAddDeptModal(${di})" title="Insert department here">➕</button>
     </div>
-
-    <div style="display:flex;flex-direction:column;align-items:center;padding:0 4px;">
-      <!-- Down connector -->
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
       <div class="v-line" style="height:16px;"></div>
-
-      <!-- Dept card -->
-      <div style="position:relative;">
+      <div>
         <div class="dept-card"
-          onmouseover="this.style.boxShadow='0 6px 20px ${dept.color}40';this.style.borderColor='${dept.color}';this.style.transform='translateY(-2px)';"
-          onmouseout="this.style.boxShadow='0 2px 10px rgba(0,0,0,.1)';this.style.borderColor='#E5E7EB';this.style.transform='none';">
-          <div class="dept-accent" style="background:linear-gradient(180deg,${dept.color},${dept.color}70);"></div>
+          onmouseover="this.style.boxShadow='0 8px 24px ${dept.color}45';this.style.borderColor='${dept.color}';this.style.transform='translateY(-3px)';"
+          onmouseout="this.style.boxShadow='0 3px 14px rgba(0,0,0,.1)';this.style.borderColor='var(--border)';this.style.transform='none';">
+          <div class="dept-accent" style="background:linear-gradient(180deg,${dept.color},${dept.color}60);"></div>
           <div class="dept-inner" onclick="openDeptPanel('${dept.id}')">
-            <div class="dept-num-badge" style="background:linear-gradient(135deg,${dept.color},${dept.color}80);">${dept.num}</div>
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,${dept.color},${dept.color}90);">${dept.num}</div>
             <div class="dept-label">${dept.label}</div>
             <div class="dept-meta">${dept.headcount} people · ${dept.roles.length} roles</div>
           </div>
           <div class="dept-btns">
             <button class="dept-btn" onclick="openAddRole('${dept.id}')" title="Add employee">➕</button>
-            <button class="dept-btn" onclick="openEditDept('${dept.id}')" title="Edit dept">✏️</button>
+            <button class="dept-btn" onclick="openEditDept('${dept.id}')" title="Edit">✏️</button>
           </div>
         </div>
-        <!-- Move left/right -->
-        <div style="display:flex;justify-content:space-between;margin-top:4px;gap:4px;">
-          ${!isFirst?`<button onclick="moveDept('${dept.id}',-1)" style="flex:1;background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:3px 0;font-size:11px;cursor:pointer;color:#6B7280;" title="Move left">◀</button>`:`<div style="flex:1;"></div>`}
-          ${!isLast?`<button onclick="moveDept('${dept.id}',1)" style="flex:1;background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:3px 0;font-size:11px;cursor:pointer;color:#6B7280;" title="Move right">▶</button>`:`<div style="flex:1;"></div>`}
+        <div class="move-row">
+          ${!isFirst?`<button class="move-btn" onclick="moveDept('${dept.id}',-1)" title="Move left">◀</button>`:`<div style="flex:1;"></div>`}
+          ${!isLast?`<button class="move-btn" onclick="moveDept('${dept.id}',1)" title="Move right">▶</button>`:`<div style="flex:1;"></div>`}
         </div>
       </div>
-
-      <!-- Role tree below -->
-      <div style="display:flex;flex-direction:column;align-items:center;">
-        ${buildRoleTree(dept)}
-      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;">${buildRoleTree(dept)}</div>
     </div>`;
   });
 
-  // Insert after last dept
-  html+=`
-    <div style="display:flex;flex-direction:column;align-items:center;padding-top:0;opacity:0;transition:opacity .2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
-      <div class="v-line" style="height:16px;opacity:0;"></div>
-      <button class="insert-col-btn" onclick="openAddDeptModal(${data.departments.length})" style="font-size:10px;writing-mode:vertical-rl;padding:8px 4px;height:60px;">➕</button>
-    </div>
-  </div>`;
+  // Insert after last
+  html+=`<div class="insert-spacer">
+    <div class="v-line" style="height:16px;opacity:0;"></div>
+    <button class="insert-col-btn" onclick="openAddDeptModal(${data.departments.length})" title="Add department at end">➕</button>
+  </div></div>`;
 
   canvas.innerHTML=html;
 
   // Legend
   document.getElementById("legend").innerHTML=Object.entries(TYPE_CFG).map(([k,s])=>
-    `<div class="leg-item"><div class="leg-dot" style="background:${s.bg};border-color:${s.border};"></div>${s.icon} ${s.label}</div>`
-  ).join("");
+    `<div class="leg-item"><div class="leg-dot" style="background:${s.bg};border-color:${s.border};"></div>${s.icon} ${s.label}</div>`).join("");
 }
 
 function closeOverlay(){document.getElementById("overlays").innerHTML="";}
 
-/* ── EDIT PRESIDENT ── */
+/* ── PRESIDENT ── */
 function openEditPresident(){
-  const pres = data.president || {role:"President",name:"",enabled:false};
+  const p=data.president||{role:"President",name:"",enabled:false};
   document.getElementById("overlays").innerHTML=`
   <div class="overlay" onclick="if(event.target===this)closeOverlay()">
     <div class="modal">
-      <div class="modal-hdr" style="background:linear-gradient(135deg,#7C3AED,#6D28D9);">
-        <span class="modal-hdr-title">👑 ${pres.enabled?"Edit":"Add"} President / MD</span>
+      <div class="modal-hdr" style="background:linear-gradient(135deg,#3B0764,#6D28D9);border-bottom:2px solid #A78BFA;">
+        <span class="modal-hdr-title">👑 ${p.enabled?"Edit":"Add"} President / MD / Chairman</span>
         <button class="modal-close" onclick="closeOverlay()">×</button>
       </div>
       <div class="modal-body">
-        <div class="field"><label>Title / Designation</label>
-          <input id="pr_role" value="${pres.role||'President'}" placeholder="e.g. President, MD, Chairman"/>
-        </div>
-        <div class="field"><label>Full Name</label>
-          <input id="pr_name" value="${pres.name||''}" placeholder="e.g. Rajesh Kumar"/>
-        </div>
+        <div class="field"><label>Designation</label><input id="pr_role" value="${p.role||'President'}" placeholder="e.g. President, MD, Chairman"/></div>
+        <div class="field"><label>Full Name</label><input id="pr_name" value="${p.name||''}" placeholder="e.g. Name here"/></div>
         <div class="btn-row">
-          <button class="btn-primary" style="background:linear-gradient(135deg,#7C3AED,#6D28D9);" onclick="savePresident(true)">
-            ${pres.enabled?"💾 Save":"➕ Add to OBS"}
-          </button>
-          ${pres.enabled?`<button class="btn-danger-sm" onclick="savePresident(false)">🗑️ Remove</button>`:""}
+          <button class="btn-primary" style="background:linear-gradient(135deg,#6D28D9,#7C3AED);" onclick="savePresident(true)">${p.enabled?"💾 Save Changes":"➕ Add to OBS"}</button>
+          ${p.enabled?`<button class="btn-danger-sm" onclick="savePresident(false)">🗑️ Remove</button>`:""}
           <button class="btn-secondary" onclick="closeOverlay()">Cancel</button>
         </div>
       </div>
@@ -537,14 +554,12 @@ function openEditPresident(){
   </div>`;
 }
 function savePresident(enable){
-  if(!data.president) data.president={role:"President",name:"",enabled:false};
+  if(!data.president)data.president={role:"President",name:"",enabled:false};
   if(enable){
     data.president.role=document.getElementById("pr_role").value.trim()||"President";
     data.president.name=document.getElementById("pr_name").value.trim();
     data.president.enabled=true;
-  } else {
-    data.president.enabled=false;
-  }
+  }else data.president.enabled=false;
   saveData();render();closeOverlay();
 }
 
@@ -556,8 +571,8 @@ function openEditGM(){
       <div class="modal-hdr"><span class="modal-hdr-title">✏️ Edit General Manager</span><button class="modal-close" onclick="closeOverlay()">×</button></div>
       <div class="modal-body">
         <div class="field"><label>Role Title</label><input id="gm_role" value="${data.gm.role}"/></div>
-        <div class="field"><label>Name</label><input id="gm_name" value="${data.gm.name}"/></div>
-        <div class="btn-row"><button class="btn-primary" onclick="saveGM()">Save & Sync</button><button class="btn-secondary" onclick="closeOverlay()">Cancel</button></div>
+        <div class="field"><label>Full Name</label><input id="gm_name" value="${data.gm.name}"/></div>
+        <div class="btn-row"><button class="btn-primary" onclick="saveGM()">💾 Save & Sync</button><button class="btn-secondary" onclick="closeOverlay()">Cancel</button></div>
       </div>
     </div>
   </div>`;
@@ -576,13 +591,13 @@ function openEditDept(id){
     <div class="modal">
       <div class="modal-hdr"><span class="modal-hdr-title">✏️ Edit Department</span><button class="modal-close" onclick="closeOverlay()">×</button></div>
       <div class="modal-body">
-        <div class="field"><label>Name</label><input id="ed_l" value="${d.label}"/></div>
-        <div class="field"><label>Description</label><textarea id="ed_d">${d.description}</textarea></div>
-        <div class="field"><label>Weekly Target</label><input id="ed_t" value="${d.weeklyTarget}"/></div>
+        <div class="field"><label>Department Name</label><input id="ed_l" value="${d.label}"/></div>
+        <div class="field"><label>Description</label><textarea id="ed_d">${d.description||''}</textarea></div>
+        <div class="field"><label>Weekly Target</label><input id="ed_t" value="${d.weeklyTarget||''}"/></div>
         <div class="field"><label>Headcount</label><input id="ed_h" type="number" value="${d.headcount}"/></div>
         <div class="btn-row">
-          <button class="btn-primary" onclick="saveDept('${id}')">Save & Sync</button>
-          <button class="btn-danger-sm" onclick="deleteDept('${id}')">🗑️ Delete</button>
+          <button class="btn-primary" onclick="saveDept('${id}')">💾 Save & Sync</button>
+          <button class="btn-danger-sm" onclick="deleteDept('${id}')">🗑️ Delete Dept</button>
           <button class="btn-secondary" onclick="closeOverlay()">Cancel</button>
         </div>
       </div>
@@ -598,26 +613,20 @@ function saveDept(id){
   saveData();render();closeOverlay();
 }
 function deleteDept(id){
-  if(!confirm("Delete this department?"))return;
+  if(!confirm("Delete this department and all its positions?"))return;
   data.departments=data.departments.filter(d=>d.id!==id);
-  renumberDepts();
-  saveData();render();closeOverlay();
+  renumberDepts();saveData();render();closeOverlay();
 }
-
-/* ── MOVE DEPT ── */
 function moveDept(id,dir){
   const i=data.departments.findIndex(d=>d.id===id);
   const ni=i+dir;
   if(ni<0||ni>=data.departments.length)return;
   [data.departments[i],data.departments[ni]]=[data.departments[ni],data.departments[i]];
-  renumberDepts();
-  saveData();render();
+  renumberDepts();saveData();render();
 }
-function renumberDepts(){
-  data.departments.forEach((d,i)=>d.num=String(i+1).padStart(2,"0"));
-}
+function renumberDepts(){data.departments.forEach((d,i)=>d.num=String(i+1).padStart(2,"0"));}
 
-/* ── ADD DEPT MODAL ── */
+/* ── ADD DEPT ── */
 function openAddDeptModal(atIndex){
   const swatches=DEPT_COLORS.map(c=>`<div class="color-swatch" id="cs_${c.replace('#','')}" style="background:${c};border:3px solid transparent;" onclick="selColor('${c}')"></div>`).join("");
   const quickBtns=QUICK_DEPTS.map(n=>`<button class="quick-btn" onclick="document.getElementById('nd_l').value='${n}'">${n}</button>`).join("");
@@ -626,15 +635,15 @@ function openAddDeptModal(atIndex){
     <div class="modal">
       <div class="modal-hdr"><span class="modal-hdr-title">➕ Add Department</span><button class="modal-close" onclick="closeOverlay()">×</button></div>
       <div class="modal-body">
-        <div style="margin-bottom:14px;"><div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:8px;letter-spacing:.5px;">QUICK SELECT</div><div class="quick-btns">${quickBtns}</div></div>
-        <div class="field"><label>Department Name</label><input id="nd_l" placeholder="e.g. HR"/></div>
+        <div style="margin-bottom:14px;"><div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:8px;letter-spacing:.8px;">QUICK SELECT</div><div class="quick-btns">${quickBtns}</div></div>
+        <div class="field"><label>Department Name</label><input id="nd_l" placeholder="e.g. Quality Control"/></div>
         <div class="field"><label>Description</label><textarea id="nd_d" placeholder="What does this department do?"></textarea></div>
         <div class="field"><label>Weekly Target</label><input id="nd_t" placeholder="e.g. 16 tasks / week"/></div>
         <div class="field"><label>Headcount</label><input id="nd_h" type="number" value="0"/></div>
         <div class="field"><label>Colour</label><div class="color-row">${swatches}</div></div>
         <input type="hidden" id="nd_c" value="${DEPT_COLORS[0]}"/>
         <div class="btn-row">
-          <button class="btn-primary" onclick="saveNewDept(${atIndex})">➕ Add</button>
+          <button class="btn-primary" onclick="saveNewDept(${atIndex})">➕ Add & Sync</button>
           <button class="btn-secondary" onclick="closeOverlay()">Cancel</button>
         </div>
       </div>
@@ -659,8 +668,7 @@ function saveNewDept(atIndex){
     color:document.getElementById("nd_c").value,
     roles:[],num:"00"};
   data.departments.splice(atIndex,0,nd);
-  renumberDepts();
-  saveData();render();closeOverlay();
+  renumberDepts();saveData();render();closeOverlay();
 }
 
 /* ── EDIT ROLE ── */
@@ -672,13 +680,13 @@ function openEditRole(deptId,roleId){
     <div class="modal">
       <div class="modal-hdr"><span class="modal-hdr-title">✏️ Edit Position</span><button class="modal-close" onclick="closeOverlay()">×</button></div>
       <div class="modal-body">
-        <div class="field"><label>Role / Designation</label><input id="er_r" value="${r.role}"/></div>
+        <div class="field"><label>Designation / Role</label><input id="er_r" value="${r.role}"/></div>
         <div class="field"><label>Employee Name</label><input id="er_n" value="${r.name||''}"/></div>
-        <div class="field"><label>Group</label><input id="er_g" value="${r.group||''}"/></div>
+        <div class="field"><label>Group / Sub-team</label><input id="er_g" value="${r.group||''}"/></div>
         <div class="field"><label>Role Type</label><div class="type-pills">${typePills}</div></div>
         <input type="hidden" id="er_t" value="${r.type}"/>
         <div class="btn-row">
-          <button class="btn-primary" onclick="saveRole('${deptId}','${roleId}')">Save & Sync</button>
+          <button class="btn-primary" onclick="saveRole('${deptId}','${roleId}')">💾 Save & Sync</button>
           <button class="btn-danger-sm" onclick="deleteRole('${deptId}','${roleId}')">🗑️</button>
           <button class="btn-secondary" onclick="closeOverlay()">Cancel</button>
         </div>
@@ -691,7 +699,7 @@ function selType(t){
   Object.entries(TYPE_CFG).forEach(([k,s])=>{
     const el=document.getElementById(`tp_${k}`);if(!el)return;
     if(k===t){el.style.background=s.bg;el.style.borderColor=s.border;el.style.color=s.text;}
-    else{el.style.background="#F9FAFB";el.style.borderColor="#E5E7EB";el.style.color="#6B7280";}
+    else{el.style.background="#F9FAFB";el.style.borderColor="var(--border)";el.style.color="var(--muted)";}
   });
 }
 function saveRole(deptId,roleId){
@@ -728,7 +736,7 @@ function openAddRole(deptId){
         <input type="hidden" id="ar_t" value="jr"/>
         <div class="field"><label>Group / Sub-team</label>
           <select id="ar_g" style="margin-bottom:8px;"><option value="">-- Select existing --</option>${groupOpts}</select>
-          <input id="ar_ng" placeholder="Or type new group name…"/>
+          <input id="ar_ng" placeholder="Or type a new group name…"/>
         </div>
         <div class="btn-row">
           <button class="btn-primary" onclick="saveAddRole('${deptId}')">➕ Add & Sync</button>
@@ -743,7 +751,7 @@ function selAType(t){
   Object.entries(TYPE_CFG).forEach(([k,s])=>{
     const el=document.getElementById(`atp_${k}`);if(!el)return;
     if(k===t){el.style.background=s.bg;el.style.borderColor=s.border;el.style.color=s.text;}
-    else{el.style.background="#F9FAFB";el.style.borderColor="#E5E7EB";el.style.color="#6B7280";}
+    else{el.style.background="#F9FAFB";el.style.borderColor="var(--border)";el.style.color="var(--muted)";}
   });
 }
 function saveAddRole(deptId){
@@ -765,25 +773,17 @@ function openDeptPanel(deptId){
   const typeCounts={};
   dept.roles.forEach(r=>{typeCounts[r.type]=(typeCounts[r.type]||0)+1;});
   let statsHTML=`<div style="background:#fff;border-radius:8px;padding:6px 14px;box-shadow:0 1px 4px rgba(0,0,0,.08);"><div style="font-size:18px;font-weight:800;color:${dept.color};">${dept.headcount}</div><div style="font-size:10px;color:#9CA3AF;font-weight:700;">HEADCOUNT</div></div>`;
-  Object.entries(typeCounts).forEach(([t,c])=>{
-    const s=TYPE_CFG[t];
-    statsHTML+=`<div style="background:#fff;border-radius:8px;padding:6px 14px;box-shadow:0 1px 4px rgba(0,0,0,.08);"><div style="font-size:18px;font-weight:800;color:${s?.text};">${c}</div><div style="font-size:10px;color:#9CA3AF;font-weight:700;">${s?.label?.toUpperCase()}</div></div>`;
-  });
-  let groupsHTML="";
+  Object.entries(typeCounts).forEach(([t,c])=>{const s=TYPE_CFG[t];statsHTML+=`<div style="background:#fff;border-radius:8px;padding:6px 14px;box-shadow:0 1px 4px rgba(0,0,0,.08);"><div style="font-size:18px;font-weight:800;color:${s?.text};">${c}</div><div style="font-size:10px;color:#9CA3AF;font-weight:700;">${s?.label?.toUpperCase()}</div></div>`;});
+  let grpsHTML="";
   Object.entries(groups).forEach(([g,roles])=>{
-    groupsHTML+=`<div style="margin-bottom:18px;"><div style="font-size:11px;font-weight:700;color:#9CA3AF;letter-spacing:1.5px;margin-bottom:8px;display:flex;align-items:center;gap:8px;"><div style="flex:1;height:1px;background:#F3F4F6;"></div>${g.toUpperCase()} <span style="color:${dept.color};">(${roles.length})</span><div style="flex:1;height:1px;background:#F3F4F6;"></div></div>`;
-    roles.forEach(r=>{
-      const s=TYPE_CFG[r.type]||TYPE_CFG.tr;
-      groupsHTML+=`<div class="role-list-item"
-        onmouseover="this.style.background='${s.bg}';this.style.borderColor='${s.border}';"
-        onmouseout="this.style.background='#FAFAFA';this.style.borderColor='#F3F4F6';">
+    grpsHTML+=`<div style="margin-bottom:18px;"><div style="font-size:11px;font-weight:700;color:#9CA3AF;letter-spacing:1.5px;margin-bottom:8px;display:flex;align-items:center;gap:8px;"><div style="flex:1;height:1px;background:#F1F5F9;"></div>${g.toUpperCase()} <span style="color:${dept.color};">(${roles.length})</span><div style="flex:1;height:1px;background:#F1F5F9;"></div></div>`;
+    roles.forEach(r=>{const s=TYPE_CFG[r.type]||TYPE_CFG.tr;
+      grpsHTML+=`<div class="role-list-item" onmouseover="this.style.background='${s.bg}';this.style.borderColor='${s.border}';" onmouseout="this.style.background='#FAFBFD';this.style.borderColor='var(--border)';">
         <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:36px;height:36px;border-radius:50%;background:${s.border};color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;">${s.icon}</div>
-          <div>
-            <div style="font-size:13px;font-weight:700;color:#111827;">${r.role}</div>
-            ${r.name?`<div style="font-size:11px;color:#6B7280;">${r.name}</div>`:""}
-            <span class="role-item-badge" style="background:${s.bg};color:${s.text};border:1px solid ${s.border}40;">${s.icon} ${s.label}</span>
-          </div>
+          <div style="width:36px;height:36px;border-radius:50%;background:${s.border};color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">${s.icon}</div>
+          <div><div style="font-size:13px;font-weight:700;color:var(--text);">${r.role}</div>
+          ${r.name?`<div style="font-size:11px;color:var(--muted);">${r.name}</div>`:""}
+          <span class="role-item-badge" style="background:${s.bg};color:${s.text};border:1px solid ${s.border}40;">${s.icon} ${s.label}</span></div>
         </div>
         <div style="display:flex;gap:6px;">
           <button style="background:#fff;border:1px solid ${s.border};color:${s.text};border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;" onclick="closeOverlay();openEditRole('${deptId}','${r.id}')">✏️</button>
@@ -791,33 +791,30 @@ function openDeptPanel(deptId){
         </div>
       </div>`;
     });
-    groupsHTML+=`</div>`;
+    grpsHTML+=`</div>`;
   });
-
   document.getElementById("overlays").innerHTML=`
   <div class="overlay" onclick="if(event.target===this)closeOverlay()">
     <div class="panel">
-      <div class="panel-hdr" style="background:linear-gradient(135deg,${dept.color}20,${dept.color}05);border-bottom:2px solid ${dept.color}30;">
+      <div class="panel-hdr" style="background:linear-gradient(135deg,${dept.color}18,${dept.color}04);border-bottom:2px solid ${dept.color}30;">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,${dept.color},${dept.color}90);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;">${dept.num}</div>
-            <div><div style="font-size:20px;font-weight:800;color:#111827;">${dept.label}</div>
-            <div style="font-size:12px;color:#6B7280;">${dept.headcount} people · ${dept.roles.length} positions</div></div>
+            <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,${dept.color},${dept.color}80);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;box-shadow:0 4px 12px ${dept.color}40;">${dept.num}</div>
+            <div><div style="font-size:20px;font-weight:800;color:var(--text);">${dept.label}</div>
+            <div style="font-size:12px;color:var(--muted);">${dept.headcount} people · ${dept.roles.length} positions</div></div>
           </div>
-          <div style="display:flex;gap:6px;">
+          <div style="display:flex;gap:6px;align-items:center;">
             <button style="background:#fff;border:1.5px solid ${dept.color}60;color:${dept.color};border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;" onclick="closeOverlay();openEditDept('${deptId}')">✏️ Edit</button>
-            <button style="background:#F3F4F6;border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:18px;" onclick="closeOverlay()">×</button>
+            <button style="background:#F1F5F9;border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:18px;color:var(--muted);" onclick="closeOverlay()">×</button>
           </div>
         </div>
         <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">${statsHTML}</div>
       </div>
       <div class="panel-body">
-        ${dept.description?`<div style="background:#F8FAFC;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#374151;line-height:1.7;border-left:3px solid ${dept.color};">${dept.description}</div>`:""}
-        ${dept.weeklyTarget?`<div style="background:rgba(200,150,46,.12);border:1px solid rgba(200,150,46,.35);border-radius:10px;padding:10px 16px;margin-bottom:18px;display:flex;align-items:center;gap:10px;"><div style="font-size:18px;">🎯</div><div><div style="font-size:10px;font-weight:700;color:#C8962E;letter-spacing:1px;">WEEKLY TARGET</div><div style="font-size:13px;font-weight:600;color:#111827;">${dept.weeklyTarget}</div></div></div>`:""}
-        <button onclick="closeOverlay();openAddRole('${deptId}')" style="width:100%;background:linear-gradient(135deg,${dept.color}12,${dept.color}04);border:2px dashed ${dept.color}55;border-radius:10px;padding:12px;font-size:14px;font-weight:700;color:${dept.color};cursor:pointer;margin-bottom:18px;box-sizing:border-box;">
-          ➕ Add New Employee to ${dept.label}
-        </button>
-        ${groupsHTML}
+        ${dept.description?`<div style="background:#F8FAFC;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.7;border-left:3px solid ${dept.color};">${dept.description}</div>`:""}
+        ${dept.weeklyTarget?`<div style="background:rgba(200,150,46,.1);border:1px solid rgba(200,150,46,.3);border-radius:10px;padding:10px 16px;margin-bottom:18px;display:flex;align-items:center;gap:10px;"><div style="font-size:18px;">🎯</div><div><div style="font-size:10px;font-weight:700;color:#C8962E;letter-spacing:1px;">WEEKLY TARGET</div><div style="font-size:13px;font-weight:600;color:var(--text);">${dept.weeklyTarget}</div></div></div>`:""}
+        <button onclick="closeOverlay();openAddRole('${deptId}')" style="width:100%;background:linear-gradient(135deg,${dept.color}10,${dept.color}03);border:2px dashed ${dept.color}50;border-radius:10px;padding:12px;font-size:14px;font-weight:700;color:${dept.color};cursor:pointer;margin-bottom:18px;box-sizing:border-box;">➕ Add New Employee to ${dept.label}</button>
+        ${grpsHTML}
       </div>
     </div>
   </div>`;
