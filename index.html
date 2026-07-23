@@ -179,13 +179,13 @@ body{background:var(--bg);min-height:100vh;}
       <div class="logo-mark">EA</div>
       <div class="logo-text">
         <div class="logo-name"><span>Effica</span> Automation</div>
-        <div class="logo-sub">A DIVISION OF CPF Pvt Ltd</div>
+        <div class="logo-sub">A PSG GROUP COMPANY</div>
       </div>
     </div>
     <!-- PAGE TITLE -->
     <div class="page-title-wrap">
       <div class="page-title">Organisational Breakdown Structure</div>
-      <div class="page-code">EA-HR-OBS-001 · v2.0</div>
+      <div class="page-code">EA-HR-SBP-001 · v2.0</div>
     </div>
     <!-- RIGHT -->
     <div class="header-right">
@@ -205,7 +205,7 @@ body{background:var(--bg);min-height:100vh;}
     <div class="ci-item">🏭 <span>Effica Automation Limited</span></div>
     <div class="ci-item">📍 <span>Neelambur, Coimbatore, Tamil Nadu</span></div>
     <div class="ci-item">🌐 <span>www.effica.in</span></div>
-    <div class="ci-item">🔗 <span>A DIVISION OF Coimbatore Pioneer Fertilizers Ltd</span></div>
+    <div class="ci-item">🔗 <span>Subsidiary of Coimbatore Pioneer Fertilizers Ltd</span></div>
   </div>
   <div class="stats-row" id="stats-row"></div>
 </div>
@@ -217,7 +217,7 @@ body{background:var(--bg);min-height:100vh;}
 
 <!-- LEGEND -->
 <div id="legend"></div>
-<div class="watermark">© Effica Automation </div>
+<div class="watermark">© Effica Automation Limited</div>
 
 <div class="toast" id="toast"></div>
 <div id="overlays"></div>
@@ -230,18 +230,18 @@ body{background:var(--bg);min-height:100vh;}
 /* ══════════════════════════════════════════
    🔥 PASTE YOUR FIREBASE CONFIG HERE
 ══════════════════════════════════════════ */
-const firebaseConfig = {
-  apiKey: "AIzaSyDRhUj6phBwea4rWwqbYPXji1Q5PySPslY",
-  authDomain: "effica-obs.firebaseapp.com",
-  databaseURL: "https://effica-obs-default-rtdb.firebaseio.com",
-  projectId: "effica-obs",
-  storageBucket: "effica-obs.firebasestorage.app",
+const FIREBASE_CONFIG = {
+  apiKey:            "AIzaSyDRhUj6phBwea4rWwqbYPXji1Q5PySPslY",
+  authDomain:        "effica-obs.firebaseapp.com",
+  databaseURL:       "https://effica-obs-default-rtdb.firebaseio.com",
+  projectId:         "effica-obs",
+  storageBucket:     "effica-obs.firebasestorage.app",
   messagingSenderId: "375849380643",
-  appId: "1:375849380643:web:b17e1fecdb2bc6dc107a96"
+  appId:             "1:375849380643:web:b17e1fecdb2bc6dc107a96"
 };
 /* ══════════════════════════════════════════ */
 
-const DB_PATH="obs_data";
+const DB_PATH="obs_data_v3";
 const DEPT_COLORS=["#1B3A6B","#C8962E","#D946EF","#3B82F6","#F59E0B","#10B981","#EF4444","#8B5CF6","#06B6D4","#F97316","#EC4899","#84CC16","#14B8A6","#6366F1"];
 const TYPE_CFG={
   tl:{bg:"#EEF2FF",border:"#4F46E5",text:"#3730A3",label:"Team Lead / HOD",icon:"👑",order:0},
