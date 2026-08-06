@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!-- saved from url=(0038)https://hreffica.github.io/Effica-OBS/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Effica Automation — Organisational Breakdown Structure</title>
 
 <!-- ═══════════════════════════════════════════
@@ -190,11 +190,11 @@ body{background:var(--bg);min-height:100vh;}
     <!-- RIGHT -->
     <div class="header-right">
       <div class="sync-pill">
-        <div class="sync-dot" id="sync-dot"></div>
-        <span id="sync-txt">Connecting…</span>
+        <div class="sync-dot live" id="sync-dot"></div>
+        <span id="sync-txt">Live — synced</span>
       </div>
-      <button class="hdr-btn gold" onclick="openAddDeptModal(data.departments.length)">➕ Add Dept</button>
-      <button class="hdr-btn danger" onclick="resetData()">🔄 Reset</button>
+      <button class="hdr-btn gold" onclick="openAddDeptModal(data.departments.length)" fdprocessedid="7lv82d">➕ Add Dept</button>
+      <button class="hdr-btn danger" onclick="resetData()" fdprocessedid="8dg3ul">🔄 Reset</button>
     </div>
   </div>
 </div>
@@ -207,24 +207,731 @@ body{background:var(--bg);min-height:100vh;}
     <div class="ci-item">🌐 <span>www.effica.in</span></div>
     <div class="ci-item">🔗 <span>Subsidiary of Coimbatore Pioneer Fertilizers Ltd</span></div>
   </div>
-  <div class="stats-row" id="stats-row"></div>
+  <div class="stats-row" id="stats-row"><div class="stat-chip"><div class="stat-chip-val">95</div><div class="stat-chip-lbl">People</div></div><div class="stat-chip"><div class="stat-chip-val">12</div><div class="stat-chip-lbl">Depts</div></div><div class="stat-chip"><div class="stat-chip-val">95</div><div class="stat-chip-lbl">Positions</div></div></div>
 </div>
 
 <!-- ═══ CANVAS ═══ -->
 <div id="canvas-wrap">
-  <div id="canvas"></div>
+  <div id="canvas"><div style="display:flex;flex-direction:column;align-items:center;"><div class="pres-node" onclick="openEditPresident()">
+      <div class="pres-avatar">AP</div>
+      <div><div class="pres-role">PRESIDENT</div>
+      <div class="pres-name">ARJUN PRAKASH</div></div>
+      <div style="font-size:12px;color:rgba(255,255,255,.3);margin-left:12px;">✏️</div>
+    </div>
+    <div class="v-line" style="height:22px;"></div><div class="gm-node" onclick="openEditGM()">
+    <div class="gm-avatar">KR</div>
+    <div><div class="gm-role">GENERAL MANAGER</div>
+    <div class="gm-name">K. Rohith Saravanakumar</div></div>
+    <div style="font-size:12px;color:rgba(255,255,255,.3);margin-left:12px;">✏️</div>
+  </div>
+  </div><div class="v-line" style="height:28px;"></div><div style="position:relative;width:100%;height:2px;background:linear-gradient(90deg,transparent,#CBD5E1 20%,#CBD5E1 80%,transparent);margin-bottom:0;"></div><div class="dept-row-outer" style="display:flex;align-items:flex-start;justify-content:center;gap:0;position:relative;padding-top:0;">
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(0)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #D946EF45&#39;;this.style.borderColor=&#39;#D946EF&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 14px; border-color: var(--border); transform: none;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#D946EF,#D946EF60);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;sales&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#D946EF,#D946EF90);">01</div>
+            <div class="dept-label">Sales &amp; Marketing</div>
+            <div class="dept-meta">3 people · 3 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;sales&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;sales&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <div style="flex:1;"></div>
+          <button class="move-btn" onclick="moveDept(&#39;sales&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;sales&#39;,&#39;s1&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">NAND KUMAR</div>
+    <div class="role-box-name">HOSUR</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;sales&#39;,&#39;s2&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">HARIHARASUDHAN</div>
+    <div class="role-box-name">CHENNAI</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;sales&#39;,&#39;s3&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">RANJITHKUMAR</div>
+    <div class="role-box-name">MATKETING</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(1)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #3B82F645&#39;;this.style.borderColor=&#39;#3B82F6&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#3B82F6,#3B82F660);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;application&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#3B82F6,#3B82F690);">02</div>
+            <div class="dept-label">Application</div>
+            <div class="dept-meta">6 people · 6 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;application&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;application&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;application&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;application&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;application&#39;,&#39;a1&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">DHANAGOPAL</div>
+    <div class="role-box-name">TEAM LEAD</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;application&#39;,&#39;a2&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">REVENTH</div>
+    <div class="role-box-name">Junior</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;application&#39;,&#39;a3&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">VILBERT</div>
+    <div class="role-box-name">Trainee</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;application&#39;,&#39;a4&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">DHARUN SURYA</div>
+    <div class="role-box-name">Trainee</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;application&#39;,&#39;a5&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">AJAY</div>
+    <div class="role-box-name">Trainee</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;application&#39;,&#39;a6&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">DHARANIDHARAN</div>
+    <div class="role-box-name">Trainee</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(2)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #F59E0B45&#39;;this.style.borderColor=&#39;#F59E0B&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#F59E0B,#F59E0B60);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;design&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#F59E0B,#F59E0B90);">03</div>
+            <div class="dept-label">Design</div>
+            <div class="dept-meta">10 people · 10 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;design&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;design&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;design&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;design&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;d1&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">HOD (Design)</div>
+    
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9001&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">PRAVEEN</div>
+    <div class="role-box-name">SENIOR DESIGN ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9002&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">VIGNESH</div>
+    <div class="role-box-name">SENIOR DESIGN ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9003&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SIDHARTH</div>
+    <div class="role-box-name">SENIOR DESIGN ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9004&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SIVA</div>
+    <div class="role-box-name">SENIOR DESIGN ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9005&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">SURESH</div>
+    <div class="role-box-name">JUNIOR DESIGN ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9006&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">VENGATESH</div>
+    <div class="role-box-name">JUNIOR DESIGN ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9007&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">JUSTIN</div>
+    <div class="role-box-name">JUNIOR DESIGN ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9008&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">LOGESH</div>
+    <div class="role-box-name">TRAINEE DESIGN ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;design&#39;,&#39;r9009&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">NIRANJAN</div>
+    <div class="role-box-name">TRAINEE DESIGN ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(3)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #10B98145&#39;;this.style.borderColor=&#39;#10B981&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#10B981,#10B98160);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;development&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#10B981,#10B98190);">04</div>
+            <div class="dept-label">Development</div>
+            <div class="dept-meta">8 people · 8 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;development&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;development&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;development&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;development&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;dv1&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">PRAKASH RAJ</div>
+    <div class="role-box-name">Team Lead</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;r9013&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">RAJKUMAR</div>
+    <div class="role-box-name">SENIOR DEVELOPMEMT ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;r9014&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">DEEPAK</div>
+    <div class="role-box-name">SENIOR DEVELOPMEMT ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;r9017&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">KALAI</div>
+    <div class="role-box-name">SENIOR DEVELOPMEMT ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;dv4&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">CHANDRU</div>
+    <div class="role-box-name">SENIOR DEVELOPMEMT ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;r9018&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">AMIZH</div>
+    <div class="role-box-name">JUNIOR DEVELOPMEMT ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;r9019&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">SRIHARI</div>
+    <div class="role-box-name">TRAINEE DEVELOPMEMT ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;development&#39;,&#39;r9020&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">SUDHIR</div>
+    <div class="role-box-name">TRAINEE DEVELOPMEMT ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(4)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #EF444445&#39;;this.style.borderColor=&#39;#EF4444&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#EF4444,#EF444460);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;manufacturing&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#EF4444,#EF444490);">05</div>
+            <div class="dept-label">Manufacturing</div>
+            <div class="dept-meta">26 people · 26 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;manufacturing&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;manufacturing&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;manufacturing&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;manufacturing&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="h-bar" style="left:25%;right:25%;"></div><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="font-size:9px;font-weight:700;color:#9CA3AF;letter-spacing:.5px;margin-bottom:4px;background:#F1F5F9;border-radius:20px;padding:1px 8px;">Team A</div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div style="display:flex;flex-direction:column;align-items:center;"><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;m1&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">SULTHAN</div>
+    <div class="role-box-name">Team Lead A</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;m2&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SELVA KUMAR</div>
+    <div class="role-box-name">WELDER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;m3&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">VIGNESH</div>
+    <div class="role-box-name">WELDER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9021&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">RANU SINGH</div>
+    <div class="role-box-name">WELDER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9060&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">DINESH</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9061&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">JAVVAR</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9062&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">ANKIVUL GAYER</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9065&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">KARAN VERMA</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9067&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">SAHIN MOLLA</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9025&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">LOGESH</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9055&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">ARUCHAMY</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9057&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">KRISHNA</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9058&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">SANJAY</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="font-size:9px;font-weight:700;color:#9CA3AF;letter-spacing:.5px;margin-bottom:4px;background:#F1F5F9;border-radius:20px;padding:1px 8px;">Team B</div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div style="display:flex;flex-direction:column;align-items:center;"><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;m4&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">RAJKUMAR</div>
+    <div class="role-box-name">Team Lead B</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;m5&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SANTHOSH KUMAR</div>
+    <div class="role-box-name">WELDER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;m6&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">RAJAN</div>
+    <div class="role-box-name">WELDER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9024&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">TINKU</div>
+    <div class="role-box-name">WELDER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9022&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">RAJ NIKHIL</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9023&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">MANISH</div>
+    <div class="role-box-name">HALFF WELDER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9059&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">PANDU NAIK</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9064&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">DHILIP</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9054&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">PRASAD</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9056&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">VIKAS</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9063&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">NIKHIL</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9066&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">PARASURAM</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;manufacturing&#39;,&#39;r9068&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">SHATURDHAN VERMA</div>
+    <div class="role-box-name">HELPER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(5)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #8B5CF645&#39;;this.style.borderColor=&#39;#8B5CF6&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#8B5CF6,#8B5CF660);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;installation&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#8B5CF6,#8B5CF690);">06</div>
+            <div class="dept-label">Installation</div>
+            <div class="dept-meta">20 people · 20 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;installation&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;installation&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;installation&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;installation&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;i0&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">STANLY ABRAHAM</div>
+    <div class="role-box-name">Team Lead</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9026&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">AKASH</div>
+    <div class="role-box-name">SENIOR INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9027&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">LOGESH</div>
+    <div class="role-box-name">SENIOR INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9028&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SATHEESH</div>
+    <div class="role-box-name">SENIOR INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9029&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">KIRAN</div>
+    <div class="role-box-name">SENIOR INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9030&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">YUVARAJ</div>
+    <div class="role-box-name">SENIOR INSTALLATION ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9031&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">KRITHICK</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9032&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">TAMIL</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9033&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">LAKSHAN</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9034&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">VILAS</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9035&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">SANAADH</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9036&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">WAHITH</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9037&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">ANAND</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9038&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">GOPI</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9039&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">KAUSHIK</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9040&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">NAVEEN</div>
+    <div class="role-box-name">JUNIOR  INSTALLATION ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9041&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">NANDHAA</div>
+    <div class="role-box-name">TRAINEE INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9042&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">SRIDHAR</div>
+    <div class="role-box-name">TRAINEE INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9043&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">GOWRI</div>
+    <div class="role-box-name">TRAINEE INSTALLATION ENGINEER</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;installation&#39;,&#39;r9044&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">SRIRAM</div>
+    <div class="role-box-name">TRAINEE INSTALLATION ENGINEER</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(6)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #EC489945&#39;;this.style.borderColor=&#39;#EC4899&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#EC4899,#EC489960);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;hr&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#EC4899,#EC489990);">07</div>
+            <div class="dept-label">HR</div>
+            <div class="dept-meta">2 people · 2 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;hr&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;hr&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;hr&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;hr&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;hr&#39;,&#39;hr1&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">MOHAMED RIYAZ</div>
+    <div class="role-box-name">HR</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;hr&#39;,&#39;hr2&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">GANGA RAM</div>
+    <div class="role-box-name">HR Executive</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(7)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #06B6D445&#39;;this.style.borderColor=&#39;#06B6D4&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#06B6D4,#06B6D460);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;purchase&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#06B6D4,#06B6D490);">08</div>
+            <div class="dept-label">Purchase &amp; Stores</div>
+            <div class="dept-meta">5 people · 5 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;purchase&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;purchase&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;purchase&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;purchase&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;purchase&#39;,&#39;p1&#39;)" onmouseover="this.style.background=&#39;#FEF3C7&#39;;this.style.borderColor=&#39;#B45309&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🏅</div>
+    <div class="role-box-title">veeraputhiran</div>
+    <div class="role-box-name">Purchase Manager</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;purchase&#39;,&#39;p2&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">LOKESH</div>
+    <div class="role-box-name">Purchase Executive</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;purchase&#39;,&#39;p3&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">INITHA</div>
+    <div class="role-box-name">Purchase Executive</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;purchase&#39;,&#39;r9046&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">BALRAMAN</div>
+    <div class="role-box-name">STORE</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div style="display:flex;flex-direction:column;align-items:center;"><div class="role-box" onclick="openEditRole(&#39;purchase&#39;,&#39;r9045&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">VIJAYKUMAR</div>
+    <div class="role-box-name">Purchase Executive</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(8)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #84CC1645&#39;;this.style.borderColor=&#39;#84CC16&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#84CC16,#84CC1660);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;rnd&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#84CC16,#84CC1690);">09</div>
+            <div class="dept-label">R&amp;D</div>
+            <div class="dept-meta">6 people · 6 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;rnd&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;rnd&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;rnd&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;rnd&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;rnd&#39;,&#39;r1&#39;)" onmouseover="this.style.background=&#39;#EEF2FF&#39;;this.style.borderColor=&#39;#4F46E5&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">👑</div>
+    <div class="role-box-title">SUDHARSAN</div>
+    <div class="role-box-name">R&amp;D Head</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div style="display:flex;flex-direction:column;align-items:center;"><div class="role-box" onclick="openEditRole(&#39;rnd&#39;,&#39;r9047&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">AJAY</div>
+    <div class="role-box-name">SENIOR</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;rnd&#39;,&#39;r9048&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">BHARARTH</div>
+    <div class="role-box-name">JUNIOR</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;rnd&#39;,&#39;r9049&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">VALMIKI UDHAY</div>
+    <div class="role-box-name">JUNIOR</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;rnd&#39;,&#39;r9050&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">MEDHINI</div>
+    <div class="role-box-name">TRAINEE</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;rnd&#39;,&#39;r9051&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">GOWTHAM</div>
+    <div class="role-box-name">TRAINEE</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(9)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #F9731645&#39;;this.style.borderColor=&#39;#F97316&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#F97316,#F9731660);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;pm&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#F97316,#F9731690);">10</div>
+            <div class="dept-label">Project Mgmt</div>
+            <div class="dept-meta">2 people · 2 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;pm&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;pm&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;pm&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;pm&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;pm&#39;,&#39;pm1&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">HAKKIM SAIBU</div>
+    <div class="role-box-name">SENIOR PROJECT</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;pm&#39;,&#39;pm2&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SAHIDHA</div>
+    <div class="role-box-name">SENIOR PROJECT</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(10)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #14B8A645&#39;;this.style.borderColor=&#39;#14B8A6&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 14px; border-color: var(--border); transform: none;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#14B8A6,#14B8A660);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;sim&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#14B8A6,#14B8A690);">11</div>
+            <div class="dept-label">Simulation</div>
+            <div class="dept-meta">4 people · 4 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;sim&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;sim&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;sim&#39;,-1)" title="Move left">◀</button>
+          <button class="move-btn" onclick="moveDept(&#39;sim&#39;,1)" title="Move right">▶</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;sim&#39;,&#39;si2&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">Simulation Engineer</div>
+    
+  </div><div class="v-line" style="height:12px;"></div><div class="role-level" style="position:relative;gap:0;align-items:flex-start;"><div class="role-node" style="margin:0 4px;"><div class="v-line" style="height:12px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div class="h-bar" style="left:22%;right:22%;"></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;sim&#39;,&#39;si1&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">VARSHEETHA</div>
+    <div class="role-box-name">SENIOR</div>
+  </div></div><div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:10px;"></div><div class="role-box" onclick="openEditRole(&#39;sim&#39;,&#39;r9052&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">DURGA RAMESH</div>
+    <div class="role-box-name">SENIOR</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div><div style="position:relative;display:flex;gap:4px;justify-content:center;align-items:flex-start;"><div style="display:flex;flex-direction:column;align-items:center;"><div class="role-box" onclick="openEditRole(&#39;sim&#39;,&#39;r9053&#39;)" onmouseover="this.style.background=&#39;#DCFCE7&#39;;this.style.borderColor=&#39;#16A34A&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;" style="background: rgb(255, 255, 255); border-color: var(--border);">
+    <div class="role-box-icon">🔵</div>
+    <div class="role-box-title">DHIVYA</div>
+    <div class="role-box-name">JUNIOR</div>
+  </div></div></div><div class="v-line" style="height:6px;"></div></div></div></div>
+    </div>
+    <div class="insert-spacer" style="padding-top:0;">
+      <div class="v-line" style="height:16px;opacity:0;"></div>
+      <button class="insert-col-btn" onclick="openAddDeptModal(11)" title="Insert department here">➕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:0 3px;">
+      <div class="v-line" style="height:16px;"></div>
+      <div>
+        <div class="dept-card" onmouseover="this.style.boxShadow=&#39;0 8px 24px #6366F145&#39;;this.style.borderColor=&#39;#6366F1&#39;;this.style.transform=&#39;translateY(-3px)&#39;;" onmouseout="this.style.boxShadow=&#39;0 3px 14px rgba(0,0,0,.1)&#39;;this.style.borderColor=&#39;var(--border)&#39;;this.style.transform=&#39;none&#39;;" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 14px; border-color: var(--border); transform: none;">
+          <div class="dept-accent" style="background:linear-gradient(180deg,#6366F1,#6366F160);"></div>
+          <div class="dept-inner" onclick="openDeptPanel(&#39;accounts&#39;)">
+            <div class="dept-num-badge" style="background:linear-gradient(135deg,#6366F1,#6366F190);">12</div>
+            <div class="dept-label">Accounts</div>
+            <div class="dept-meta">3 people · 3 roles</div>
+          </div>
+          <div class="dept-btns">
+            <button class="dept-btn" onclick="openAddRole(&#39;accounts&#39;)" title="Add employee">➕</button>
+            <button class="dept-btn" onclick="openEditDept(&#39;accounts&#39;)" title="Edit">✏️</button>
+          </div>
+        </div>
+        <div class="move-row">
+          <button class="move-btn" onclick="moveDept(&#39;accounts&#39;,-1)" title="Move left">◀</button>
+          <div style="flex:1;"></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;"><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;accounts&#39;,&#39;ac1&#39;)" onmouseover="this.style.background=&#39;#FEF3C7&#39;;this.style.borderColor=&#39;#B45309&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🏅</div>
+    <div class="role-box-title">DEIVASIGAMANI</div>
+    <div class="role-box-name">FINANCE MANAGER</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;accounts&#39;,&#39;ac2&#39;)" onmouseover="this.style.background=&#39;#FEF9C3&#39;;this.style.borderColor=&#39;#CA8A04&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">⭐</div>
+    <div class="role-box-title">SARAVANAKUMAR</div>
+    <div class="role-box-name">SENIOR ACCOUNTANT</div>
+  </div><div class="v-line" style="height:12px;"></div><div class="role-box" onclick="openEditRole(&#39;accounts&#39;,&#39;ac3&#39;)" onmouseover="this.style.background=&#39;#F1F5F9&#39;;this.style.borderColor=&#39;#64748B&#39;;" onmouseout="this.style.background=&#39;#fff&#39;;this.style.borderColor=&#39;var(--border)&#39;;">
+    <div class="role-box-icon">🟢</div>
+    <div class="role-box-title">Trainee</div>
+    
+  </div></div>
+    </div><div class="insert-spacer">
+    <div class="v-line" style="height:16px;opacity:0;"></div>
+    <button class="insert-col-btn" onclick="openAddDeptModal(12)" title="Add department at end">➕</button>
+  </div></div></div>
 </div>
 
 <!-- LEGEND -->
-<div id="legend"></div>
+<div id="legend"><div class="leg-item"><div class="leg-dot" style="background:#EEF2FF;border-color:#4F46E5;"></div>👑 Team Lead / HOD</div><div class="leg-item"><div class="leg-dot" style="background:#FEF3C7;border-color:#B45309;"></div>🏅 Manager</div><div class="leg-item"><div class="leg-dot" style="background:#FEF9C3;border-color:#CA8A04;"></div>⭐ Senior</div><div class="leg-item"><div class="leg-dot" style="background:#DCFCE7;border-color:#16A34A;"></div>🔵 Junior</div><div class="leg-item"><div class="leg-dot" style="background:#F1F5F9;border-color:#64748B;"></div>🟢 Trainee</div><div class="leg-item"><div class="leg-dot" style="background:#FDF2F8;border-color:#C026D3;"></div>📍 Region</div></div>
 <div class="watermark">© Effica Automation Limited</div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">✅ Saved &amp; synced</div>
 <div id="overlays"></div>
 
 <!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="./Effica Automation — Organisational Breakdown Structure_files/firebase-app-compat.js.download"></script>
+<script src="./Effica Automation — Organisational Breakdown Structure_files/firebase-database-compat.js.download"></script>
 
 <script>
 /* ══════════════════════════════════════════
@@ -241,7 +948,7 @@ const FIREBASE_CONFIG = {
 };
 /* ══════════════════════════════════════════ */
 
-const DB_PATH="obs_data_V3";
+const DB_PATH="obs_data_v3";
 const DEPT_COLORS=["#1B3A6B","#C8962E","#D946EF","#3B82F6","#F59E0B","#10B981","#EF4444","#8B5CF6","#06B6D4","#F97316","#EC4899","#84CC16","#14B8A6","#6366F1"];
 const TYPE_CFG={
   tl:{bg:"#EEF2FF",border:"#4F46E5",text:"#3730A3",label:"Team Lead / HOD",icon:"👑",order:0},
@@ -828,5 +1535,6 @@ function resetData(){
 
 initFirebase();
 </script>
-</body>
-</html>
+
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
